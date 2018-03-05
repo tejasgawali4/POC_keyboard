@@ -2,18 +2,15 @@ package com.in.prisms.poc_keyboard;
 
 import android.app.ProgressDialog;
 import android.content.res.Resources;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.app.SearchManager;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.SearchView.OnQueryTextListener;
 
 import com.amitshekhar.DebugDB;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -76,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         try
         {
 
-            //DebugDB.getAddressLog();
+            DebugDB.getAddressLog();
             userDBHelper = new UserDBHelper(getApplicationContext());
             addDate1();
             userDBHelper.AddStudentProfile(studentBean);
