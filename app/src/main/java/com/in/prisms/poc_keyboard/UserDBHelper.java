@@ -79,11 +79,10 @@ public class UserDBHelper {
         studentBean.setDivName(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_STUDENT_DIV)));
         studentBean.setMobileNo(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_STUDENT_MOBILE)));
         studentBean.setStudentAvtar(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_STUDENT_AVTAR)));
-        studentBean.setStudentAvtar(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_LONGITUDE)));
-        studentBean.setStudentAvtar(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_LATITUDE)));
-        studentBean.setStudentAvtar(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_LATITUDE)));
-        studentBean.setStudentAvtar(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_SCAN_ID)));
-        studentBean.setStudentAvtar(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_FLOG)));
+        studentBean.setLongitude(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_LONGITUDE)));
+        studentBean.setLatitude(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_LATITUDE)));
+        studentBean.setFlag(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_FLOG)));
+        studentBean.setScanId(cursor.getString(cursor.getColumnIndex(userDBAdapter.KEY_SCAN_ID)));
         return studentBean;
     }
 

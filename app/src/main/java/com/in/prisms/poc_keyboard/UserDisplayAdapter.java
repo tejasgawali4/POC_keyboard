@@ -3,12 +3,21 @@ package com.in.prisms.poc_keyboard;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
+
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import static android.R.attr.data;
 
@@ -59,6 +68,7 @@ public class UserDisplayAdapter extends BaseAdapter{
 
             holder.name = (TextView) convertView.findViewById(R.id.UserName);
             holder.div = (TextView) convertView.findViewById(R.id.Class);
+            holder.imageView = (ImageView) convertView.findViewById(R.id.imageView);
         }
         else
         {
@@ -69,6 +79,10 @@ public class UserDisplayAdapter extends BaseAdapter{
         holder.div.setText(userBean.getScanId());
         Log.d("scanId" , "" + userBean.getScanId());
         Log.d("Name" , "" + userBean.getFirstname());
+
+        String imageUri = userBean.getStudentAvtar();
+
+        Picasso.with(activity).load(imageUri).into(holder.imageView);
 
         convertView.setTag(holder);
 
@@ -84,6 +98,7 @@ public class UserDisplayAdapter extends BaseAdapter{
     {
 
         public TextView name ,div;
+        public ImageView imageView;
 
     }
 }

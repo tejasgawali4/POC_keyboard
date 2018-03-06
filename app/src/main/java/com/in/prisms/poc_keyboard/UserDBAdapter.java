@@ -23,7 +23,7 @@ public class UserDBAdapter extends TopSchoolDB {
     public static final String KEY_LONGITUDE = "studentlongitude";
     public static final String KEY_LATITUDE = "studentlatitude";
     public static final String KEY_FLOG = "studentflag";
-    public static final String KEY_SCAN_ID = "scanID";
+    public static final String KEY_SCAN_ID = "scanId";
 
     public UserDBAdapter(Context mContext)
     {
@@ -43,10 +43,19 @@ public class UserDBAdapter extends TopSchoolDB {
         args.put(KEY_FLOG, studentBean.getFlag());
         args.put(KEY_SCAN_ID, studentBean.getScanId());
 
-        Log.d("UserDatabase", "db before added..");
-        mySqliteDB.insert(DATABASE_TABLE, null, args);
-        Log.d("UserDatabase", "db log added..");
-        return true;
+        int numberofRowsaffected = mySqliteDB.update(DATABASE_TABLE, args, KEY_SCAN_ID + "=?",new String[]{studentBean.getScanId()});
+
+        if(  numberofRowsaffected == 0) // no row was found so we need to create one
+        {
+            mySqliteDB.insert(DATABASE_TABLE, null, args);
+            return true;
+        }
+        else if(  numberofRowsaffected  != 1)  // more than/less than 1 row was found so we are in trouble :P   ( this already takes care of 0 by the else if)
+        {
+            return false;
+        }
+
+        return true;  // all is well  .. only 1 row was updated
     }
 
     public Cursor getBeanFromNotesId(String id)

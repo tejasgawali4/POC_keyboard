@@ -43,7 +43,7 @@ public class TopSchoolDB {
         @Override
         public void onCreate(SQLiteDatabase db) {
             // TODO Auto-generated method stub
-            String CREATE_PROFILE_TABLE="create table profileDetails(studentName text,studentClass text,studentDiv text,studentMobile text, studentAvtar text, studentlongitude text, studentlatitude text, studentflag text , scanID text);";
+            String CREATE_PROFILE_TABLE="create table profileDetails(studentName text,studentClass text,studentDiv text,studentMobile text, studentAvtar text, studentlongitude text, studentlatitude text, studentflag text , scanId text);";
             db.execSQL(CREATE_PROFILE_TABLE);
 
             Log.d("oncreate", "table created");
